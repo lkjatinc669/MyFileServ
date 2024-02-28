@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome My File Serv</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        <div class="mid-card">
+            <img src="{{url_for('static', filename='images/logo.jpg')}}" alt="logo" />
+            <!-- <img src="../../static/images/msf.logo.png" alt="logo" /> -->
+            <h1>Welcome to MyFileServ</h1>
+            <p>MyFileServ is a Flask-based web application designed to provide users within a local area network (LAN) with a simple and secure solution for file storage and management. With MyFileServ, users can create accounts and upload files of any type and size to their personal storage space, accessible only to them. Additionally, there is a shared space where users can collaborate by sharing files with others in the network. The app offers an intuitive user interface and robust security measures to ensure data privacy and protection. MyFileServ is ideal for households, small businesses, or any environment where users need to efficiently manage and access files within a local network.</p>
+            <a href="/admin/config">Config</a>
+        </div>
+    </div>
+</body>
+</html>
