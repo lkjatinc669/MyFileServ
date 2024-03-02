@@ -8,4 +8,4 @@ def index():
         return redirect(url_for("/user"))
     if 'admsecname' in session:
         return redirect(url_for("/admin"))
-    return render_template( "index.html")
+    return render_template("index.html")
