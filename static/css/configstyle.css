@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root{
+    --backgroundcolor: #3b3b3b;
+    --primarycolor: #3700B3;
+    --secondarycolor: #03DAC6;
+}
+
+*{
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: var(--backgroundcolor);
+    height: 100vh;
+    width: 100vw;
+    margin: 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+body{
+    background: url('./bg5.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    opacity: 0.85;
+}
+
+
+form {
+    padding: 40px 30px;
+    background: #fefefe;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    width: 320px;
+    border-radius: 12px;
+}
+
+form p {
+    line-height: 155%;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000;
+    opacity: 0.65;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.session {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 470px;
+    margin: auto auto;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 10px blue;
+}
+
+.left {
+    width: 320px;
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    background-image: url("../images/logobg.jpeg");
+    background-size: cover;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.left .logo #logo{
+    width: auto;
+    height: 60px;
+}
+
+.left .logo{
+    width: 100%;
+    margin: 12px;
+    padding: 12px 0;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Kode Mono"
+}
+
+.logo > *{
+    font-family: "Zilla Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Zilla Slab", serif;
+}
+
+.text-box{
+    font-size: 16px;
+    padding: 20px 0px;
+    height: 36px;
+    border: none;
+    margin-bottom: 12px;
+    border-bottom: solid 1px rgba(0, 0, 0, .1);
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s linear;
+    color: #000;
+    font-weight: 400;
+}
+
+.text-box:focus {
+    border-bottom: solid 1px var(--primarycolor);
+    outline: 0;
+    box-shadow: 0 2px 6px -8px var(--primarycolor);
+}
+
+.button-full{
+    background-color: var(--primarycolor);
+    color: white;
+    width: 100%;
+    min-width: 100px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px 40px;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: auto;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+    outline: 0;
+    border: 2px solid var(--primarycolor);
+}
+
+.button{
+    background-color: var(--primarycolor);
+    color: white;
+    width: auto;
+    min-width: 100px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px 40px;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: auto;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+    outline: 0;
+    border: 2px solid var(--primarycolor);
+}
+
+.code {
+    padding: 12px;
+    border: 2px solid black;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code .special>* {
+    letter-spacing: 8px;
+    line-height: 150%;
+}

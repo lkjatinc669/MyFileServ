@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/configstyle.css')}}">
+</head>
+
+<body>
+    <div class="session">
+        <div class="left">
+            <div class="logo">
+                <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo" id="logo">
+                <h2>MyFileServ</h2>
+            </div>
+        </div>
+        {% if form == "start" %}
+        {% include "config/start.html" %}
+        {% elif form == "config1" %}
+        {% include "config/config1.html" %}
+        {% elif form == "config2" %}
+        {% include "config/config2.html" %}
+        {% elif form == "complete" %}
+        {% include "config/complete.html" %}
+        {% else %}
+        {% include "notfound.html" %}
+        {% endif %}
+    </div>
+</body>
+
+</html>

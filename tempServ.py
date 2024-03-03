@@ -49,3 +49,6 @@ files_json = json.dumps(files_list)
 
 # Print the JSON formatted list of files
 print(files_json)
+
+import os
+os.listdir()
