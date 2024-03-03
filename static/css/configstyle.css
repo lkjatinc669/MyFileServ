@@ -26,7 +26,7 @@ html, body {
 }
 
 body{
-    background: url('./bg5.jpeg');
+    background: url('../images/body.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -38,6 +38,7 @@ h4 {
     font-weight: 600;
     color: #000;
     opacity: 0.85;
+    margin-bottom: 10px;
 }
 
 
@@ -69,7 +70,6 @@ form p {
     margin: auto auto;
     background: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 10px 10px blue;
 }
 
 .left {
@@ -79,6 +79,7 @@ form p {
     position: relative;
     background-image: url("../images/logobg.jpeg");
     background-size: cover;
+    background-position: center;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }

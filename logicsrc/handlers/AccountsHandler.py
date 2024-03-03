@@ -1,57 +1,56 @@
 import sqlite3
-from datetime import datetime
-import os
 
-class UserAccountHandler:
-    def __init__(self):
-        self.db_name = f"{os.getcwd()}\\.secret\\userdb.db"
-        self.conn = sqlite3.connect(self.db_name)
+class AccountsHandler:
+    def __init__(self, db_name):
+        self.db_name = db_name
+        self.conn = sqlite3.connect(db_name)
         self.create_table()
 
     def create_table(self):
         query = '''
-            CREATE TABLE IF NOT EXISTS user_accounts (
+            CREATE TABLE IF NOT EXISTS accounts (
                 unqid INTEGER PRIMARY KEY,
-                username TEXT,
-                firstname TEXT,
-                lastname TEXT,
-                foldername TEXT,
-                password TEXT,
                 role TEXT,
-                date_of_creation TEXT
+                username TEXT,
+                password TEXT,
+                foldername TEXT,
+                seccode TEXT
             )
         '''
         self.conn.execute(query)
         self.conn.commit()
 
-    def create_account(self, username, firstname, lastname, foldername, password, role):
-        date_of_creation = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    def get_account(self, unqid):
         query = '''
-            INSERT INTO user_accounts (username, firstname, lastname, foldername, password, role, date_of_creation)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            SELECT * FROM accounts WHERE unqid=?
         '''
-        self.conn.execute(query, (username, firstname, lastname, foldername, password, role, date_of_creation))
+        cursor = self.conn.execute(query, (unqid,))
+        return cursor.fetchone()
+
+    def write_account(self, role, username, password, foldername, seccode):
+        query = '''
+            INSERT INTO accounts (role, username, password, foldername, seccode)
+            VALUES (?, ?, ?, ?, ?)
+        '''
+        self.conn.execute(query, (role, username, password, foldername, seccode))
         self.conn.commit()
 
-    def update_account(self, unqid, username=None, firstname=None, lastname=None, foldername=None, password=None, role=None):
+    def update_account(self, unqid, role=None, username=None, password=None, foldername=None, seccode=None):
         updates = []
-        if username:
-            updates.append(('username', username))
-        if firstname:
-            updates.append(('firstname', firstname))
-        if lastname:
-            updates.append(('lastname', lastname))
-        if foldername:
-            updates.append(('foldername', foldername))
-        if password:
-            updates.append(('password', password))
         if role:
             updates.append(('role', role))
-        updates.append(('date_of_creation', datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+        if username:
+            updates.append(('username', username))
+        if password:
+            updates.append(('password', password))
+        if foldername:
+            updates.append(('foldername', foldername))
+        if seccode:
+            updates.append(('seccode', seccode))
 
         update_query = ', '.join([f'{field}=?' for field, _ in updates])
         query = f'''
-            UPDATE user_accounts
+            UPDATE accounts
             SET {update_query}
             WHERE unqid=?
         '''
@@ -61,16 +60,9 @@ class UserAccountHandler:
         self.conn.execute(query, values)
         self.conn.commit()
 
-    def get_account(self, unqid):
-        query = '''
-            SELECT * FROM user_accounts WHERE unqid=?
-        '''
-        cursor = self.conn.execute(query, (unqid,))
-        return cursor.fetchone()
-
     def delete_account(self, unqid):
         query = '''
-            DELETE FROM user_accounts WHERE unqid=?
+            DELETE FROM accounts WHERE unqid=?
         '''
         self.conn.execute(query, (unqid,))
         self.conn.commit()
